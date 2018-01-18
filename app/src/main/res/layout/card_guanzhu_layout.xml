@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="10dp">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/care_profile_photo"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/care_nick_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="8dp"
+            android:text="胖虎"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/care_profile_photo"
+            app:layout_constraintTop_toTopOf="@+id/care_profile_photo" />
+
+        <TextView
+            android:id="@+id/care_share_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="11:48"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toLeftOf="@+id/care_nick_name"
+            app:layout_constraintRight_toRightOf="@+id/care_nick_name"
+            app:layout_constraintTop_toBottomOf="@+id/care_nick_name" />
+
+        <TextView
+            android:id="@+id/care_share_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="5dp"
+            android:text="社交软件中的“头像”一词对应的英文翻译？没有使用过纯正的英文社交软件。腾讯的微信语言切换之后”头像“ 对应的是“profile photo”，准确吗？"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/care_profile_photo" />
+
+        <Button
+            android:id="@+id/care_friend_setting"
+            android:layout_width="88dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@mipmap/weibo"
+            app:layout_constraintBottom_toBottomOf="@+id/care_profile_photo"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/care_profile_photo" />
+
+        <GridView
+            android:id="@+id/care_gridview_picture"
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:horizontalSpacing="5dp"
+            android:numColumns="2"
+            android:verticalSpacing="5dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/care_share_content">
+        </GridView>
+
+        <ImageButton
+            android:id="@+id/care_do_btn"
+            android:layout_width="22dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:background="@mipmap/weixin"
+            app:layout_constraintLeft_toLeftOf="@+id/care_gridview_picture"
+            app:layout_constraintTop_toBottomOf="@+id/care_gridview_picture" />
+
+        <TextView
+            android:id="@+id/care_do_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:text="×8"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/care_do_btn"
+            app:layout_constraintLeft_toRightOf="@+id/care_do_btn"
+            app:layout_constraintTop_toTopOf="@+id/care_do_btn" />
+
+        <TextView
+            android:id="@+id/care_zan_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:text="×32"
+            android:textSize="18sp"
+            app:layout_constraintRight_toRightOf="@+id/care_gridview_picture"
+            app:layout_constraintTop_toBottomOf="@+id/care_gridview_picture" />
+
+        <ImageButton
+            android:id="@+id/care_zan_btn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@mipmap/qq"
+            app:layout_constraintBottom_toBottomOf="@+id/care_zan_num"
+            app:layout_constraintRight_toLeftOf="@+id/care_zan_num"
+            app:layout_constraintTop_toTopOf="@+id/care_zan_num" />
+
+        <EditText
+            android:id="@+id/care_pinglun_edit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:background="#2255ff"
+            android:hint="评论一下吧"
+            app:layout_constraintLeft_toRightOf="@+id/care_do_num"
+            app:layout_constraintRight_toLeftOf="@+id/care_zan_btn"
+            app:layout_constraintTop_toBottomOf="@+id/care_gridview_picture" />
+
+        <TextView
+            android:id="@+id/care_line"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@mipmap/qq"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/care_pinglun_edit" />
+
+        <ListView
+            android:id="@+id/care_pinglun_list"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:divider="@null"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/care_line">
+        </ListView>
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</android.support.v7.widget.CardView>

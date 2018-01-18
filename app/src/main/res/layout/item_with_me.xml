@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="10dp">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/with_me_profile_photo"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/panghu"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/with_me_nick_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="胖虎"
+            android:textSize="17sp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="@+id/with_me_profile_photo"
+            app:layout_constraintLeft_toRightOf="@+id/with_me_profile_photo"
+            />
+        <TextView
+            android:id="@+id/with_me_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11:48"
+            android:textSize="12sp"
+            android:layout_marginTop="3dp"
+            app:layout_constraintLeft_toLeftOf="@+id/with_me_nick_name"
+            app:layout_constraintRight_toRightOf="@+id/with_me_nick_name"
+            app:layout_constraintTop_toBottomOf="@+id/with_me_nick_name"
+            />
+        <TextView
+            android:id="@+id/with_me_comment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:text="萌黄你厉害啊"
+            android:textSize="16sp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintTop_toBottomOf="@+id/with_me_profile_photo"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            />
+        <TextView
+            android:id="@+id/with_me_reply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="回复"
+            android:textSize="16sp"
+            android:textColor="@color/blue_interaction"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintTop_toTopOf="@+id/with_me_profile_photo"
+            app:layout_constraintBottom_toBottomOf="@+id/with_me_profile_photo"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/with_me_share_container"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:background="@drawable/bg_with_me"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/with_me_comment"
+            app:layout_constraintRight_toRightOf="parent">
+            <ImageView
+                android:id="@+id/with_me_picture"
+                android:layout_width="116dp"
+                android:layout_height="76dp"
+                android:src="@drawable/panghu"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="1dp"
+                />
+            <TextView
+                android:id="@+id/with_me_share_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="胖虎"
+                android:textColor="@color/blue_interaction"
+                app:layout_constraintLeft_toRightOf="@+id/with_me_picture"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                />
+            <TextView
+                android:id="@+id/with_me_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="请叫我胖虎！"
+                app:layout_constraintLeft_toLeftOf="@+id/with_me_share_name"
+                app:layout_constraintTop_toBottomOf="@+id/with_me_share_name"
+                android:layout_marginTop="3dp"
+                />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <ListView
+            android:id="@+id/with_me_list"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/with_me_share_container"
+            >
+
+        </ListView>
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+
+</android.support.v7.widget.CardView>

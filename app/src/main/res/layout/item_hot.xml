@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="@drawable/bg_frame">
+
+    <ImageView
+        android:id="@+id/hot_item_picture"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/panghu"
+        android:scaleType="fitCenter"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/hot_item_profile_photo"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/panghu"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintLeft_toLeftOf="@+id/hot_item_picture"
+        app:layout_constraintBottom_toBottomOf="@+id/hot_item_picture"
+        />
+    <TextView
+        android:id="@+id/hot_zan_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="×32"
+        android:textSize="16sp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/hot_item_profile_photo"
+        app:layout_constraintRight_toRightOf="@+id/hot_item_picture"
+        />
+    <ImageButton
+        android:id="@+id/hot_zan_btn"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:background="@drawable/thumb"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/hot_zan_num"
+        app:layout_constraintTop_toTopOf="@+id/hot_zan_num"
+        app:layout_constraintRight_toLeftOf="@+id/hot_zan_num"
+        />
+    <TextView
+        android:id="@+id/hot_item_content_shortcut"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:text="社交软件中的“头像”一词对应的英文翻译？没有使用过纯正的英文社交软件。腾讯的微信语言切换之后”头像“ 对应的是“profile photo”，准确吗？"
+        android:textSize="12sp"
+        android:background="@drawable/bg_for_coment_in_hot"
+        android:paddingStart="2dp"
+        android:paddingEnd="2dp"
+        android:paddingTop="1dp"
+        android:paddingBottom="1dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="start|center"
+        app:layout_constraintLeft_toRightOf="@id/hot_item_profile_photo"
+        app:layout_constraintRight_toLeftOf="@id/hot_zan_btn"
+        app:layout_constraintBottom_toBottomOf="@id/hot_item_profile_photo"
+        app:layout_constraintTop_toTopOf="@id/hot_item_profile_photo"/>
+
+
+</android.support.constraint.ConstraintLayout>

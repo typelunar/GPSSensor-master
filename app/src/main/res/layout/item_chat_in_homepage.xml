@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="name"
+        app:layout_constraintLeft_toRightOf="@+id/avatar2"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/send_message"
+        android:text="last"
+        android:textSize="15sp"
+        android:textColor="@color/color_dark"
+        app:layout_constraintLeft_toRightOf="@+id/avatar2"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="3dp"
+        />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/panghu"
+        android:id="@+id/avatar2"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"/>
+
+</android.support.constraint.ConstraintLayout>

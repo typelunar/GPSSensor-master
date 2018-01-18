@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:gravity="center">
+    <TextView
+        android:id="@+id/search_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="用户名"
+        android:textSize="18sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.35"/>
+    <TextView
+        android:id="@+id/search_item_id_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="id: "
+        android:textSize="14sp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/search_item_name"
+        app:layout_constraintLeft_toRightOf="@id/search_item_name" />
+    <TextView
+        android:id="@+id/search_item_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="8888888"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/search_item_name"
+        app:layout_constraintLeft_toRightOf="@id/search_item_id_title" />
+
+</android.support.constraint.ConstraintLayout>

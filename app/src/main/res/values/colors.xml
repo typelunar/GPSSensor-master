@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#8e8e8f</color>
+    <color name="colorAccent">#4eb89c</color>
+    <color name="listbgc">#fefefe</color>
+    <color name="listbgc_half">#fefefe</color>
+    <color name="hint_color">#cfc9d1d3</color>
+    <color name="blue_interaction">#6290e6</color>
+    <color name="color_theme">#e3f9f7</color>
+    <color name="color_theme_inside">#c0eef1f1</color>
+    <color name="color_normal">#acedf5f5</color>
+    <color name="color_transparent">#acedf5f5</color>
+    <color name="color_text_on_dark">#ace9f9</color>
+    <color name="transparent">#00ace9f9</color>
+    <color name="color_dark">#011616</color>
+    <color name="colorWhite">#FFFF</color>
+    <color name="colorBlack">#000</color>
+    <color name="circle_start">#68e3cf</color>
+    <color name="circle_end">#eb4438</color>
+    <color name="fade_text">#74939494</color>
+    <color name="color_chat">#f2f2f2</color>
+</resources>

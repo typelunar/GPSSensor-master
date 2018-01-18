@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/update_from_new"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/dialog_shot_img"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/icon_camera"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/dialog_shot_text"/>
+        <TextView
+            android:id="@id/dialog_shot_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="拍摄"
+            android:textSize="22sp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/dialog_shot_img"/>
+    </android.support.constraint.ConstraintLayout>
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/update_from_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/dialog_tuku_img"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/icon_tuku"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/dialog_tuku_text"/>
+        <TextView
+            android:id="@id/dialog_tuku_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="图库"
+            android:textSize="22sp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/dialog_tuku_img"/>
+    </android.support.constraint.ConstraintLayout>
+
+</LinearLayout>
