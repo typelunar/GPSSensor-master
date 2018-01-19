@@ -58,8 +58,8 @@ public class MYSQL{
                     + context.getResources().getResourcePackageName(R.drawable.jiqu) + "/"
                     + context.getResources().getResourceTypeName(R.drawable.jiqu) + "/"
                     + context.getResources().getResourceEntryName(R.drawable.jiqu));
-            db.execSQL("insert into users values(?,?,?,?,?)",
-                    new String[]{"9999999999","迹趣官方","jiquguangfang",uri.toString(),null});
+            db.execSQL("insert into users values(?,?,?,?,?,?)",
+                    new String[]{"9999999999","迹趣官方","jiquguangfang",uri.toString(),"迹趣官方","9999999999"});
         }catch (SQLiteException e) {}
     }
     //   guanzhu
@@ -117,10 +117,6 @@ public class MYSQL{
     {
         return db.rawQuery("select * from friends where user_id = ?",new String[]{user_id});
     }
-    public Cursor get_chat_list_by_net_id(String user_id)
-    {
-        return db.rawQuery("select * from friends,user where net_id = ? and users_id=_id",new String[]{user_id});
-    }
     //   user
     public int user_getCount()
     {
@@ -130,6 +126,7 @@ public class MYSQL{
     {
         try {
             db.execSQL("update users set net_id = ? where _id = ?",new String[]{net_id,id});
+            new_chat("9999999999",net_id,"欢迎使用迹趣，感谢您的支持。");
         }
         catch (SQLiteException e) {}
     }
@@ -139,7 +136,20 @@ public class MYSQL{
             String s=Integer.toString(user_getCount());
             db.execSQL("insert into users values(?,?,?,?,?,?)",
                     new String[]{s,name,password,icon,"设置你的个性签名","0"});
-            new_chat("9999999999",s,"欢迎使用迹趣，感谢您的支持。");
+        }
+        catch (SQLiteException e) {}
+    }
+    public void user_from_net(String name,String password,String icon)
+    {
+        try {
+            if(select_user_by_name(name).moveToNext()){}
+            else
+            {
+                String s=Integer.toString(user_getCount());
+                db.execSQL("insert into users values(?,?,?,?,?,?)",
+                        new String[]{s,name,password,icon,"设置你的个性签名","0"});
+            }
+
         }
         catch (SQLiteException e) {}
     }
@@ -149,7 +159,7 @@ public class MYSQL{
     }
     public String get_user_name(String user_id)
     {
-        Cursor c=select_user(user_id);
+        Cursor c=select_user_by_net_id(user_id);
         c.moveToFirst();
         return c.getString(1);
     }
@@ -170,22 +180,22 @@ public class MYSQL{
     public void update_username(String users_id,String name,String word)
     {
         try {
-            db.execSQL("update users set name = ? where _id = ?",new String[]{name,users_id});
-            db.execSQL("update users set word = ? where _id = ?",new String[]{word,users_id});
+            db.execSQL("update users set name = ? where net_id = ?",new String[]{name,users_id});
+            db.execSQL("update users set word = ? where net_id = ?",new String[]{word,users_id});
         }
         catch (SQLiteException e) {}
     }
     public void update_userpasswor(String users_id,String password)
     {
         try {
-            db.execSQL("update users set password = ? where _id = ?",new String[]{password,users_id});
+            db.execSQL("update users set password = ? where net_id = ?",new String[]{password,users_id});
         }
         catch (SQLiteException e) {}
     }
     public void update_usericon(String users_id,String icon)
     {
         try {
-            db.execSQL("update users set icon = ? where _id = ?",new String[]{icon,users_id});
+            db.execSQL("update users set icon = ? where net_id = ?",new String[]{icon,users_id});
         }
         catch (SQLiteException e) {}
     }

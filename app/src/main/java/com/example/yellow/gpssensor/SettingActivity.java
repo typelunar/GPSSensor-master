@@ -49,7 +49,7 @@ public class SettingActivity extends Activity {
         TextView myword = (TextView) findViewById(R.id.setting_charateristic_signature) ;
         DataShare ds=((DataShare)getApplicationContext());
         id=ds.getUserid();
-        Cursor me = sql.select_user(id);
+        Cursor me = sql.select_user_by_net_id(id);
         me.moveToNext();
         icon.setImageURI(Uri.parse(me.getString(3)));
         myname.setText(me.getString(1));

@@ -93,8 +93,7 @@ public class welcome extends AppCompatActivity {
         if(!isFirstLaunch){
             DataShare ds=((DataShare)getApplicationContext());
             ds.setUsername(sharedPreferences.getString("Username","游客"));
-            Cursor c=sql.select_user_by_name(ds.getUsername());
-            c.moveToNext();
+            ds.setUserid(sharedPreferences.getString("Usersid","游客"));
             //ds.setUserid(c.getString(0));
         }
         else{

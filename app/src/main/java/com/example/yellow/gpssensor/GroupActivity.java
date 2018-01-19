@@ -22,6 +22,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -45,6 +46,7 @@ public class GroupActivity extends AppCompatActivity {
         TextView name = (TextView)findViewById(R.id.group_title_name);
         DataShare ds = ((DataShare)getApplicationContext());
         String id = ds.getUserid();
+        Toast.makeText(this,id,Toast.LENGTH_LONG).show();
         Cursor c = sql.select_user_by_net_id(id);
         c.moveToNext();
         //icon.setImageURI(Uri.parse(c.getString(3)));
@@ -107,7 +109,7 @@ public class GroupActivity extends AppCompatActivity {
         ListView sixin_view = (ListView) findViewById(R.id.group_list_sixin);
         FatherViewAdapter dongtai_adapter = new FatherViewAdapter(this,null);
         DataShare ds=((DataShare)getApplicationContext());
-        final ChatViewAdapter sixin_adapter = new ChatViewAdapter(this,sql.get_chat_list_by_net_id(ds.getUserid()));//intentin.getStringExtra("user")
+        final ChatViewAdapter sixin_adapter = new ChatViewAdapter(this,sql.get_chat_list(ds.getUserid()));//intentin.getStringExtra("user")
         dongtai_view.setAdapter(dongtai_adapter);
         dongtai_adapter.mList=sql.select_guanzhu_all();
         dongtai_adapter.notifyDataSetChanged();
