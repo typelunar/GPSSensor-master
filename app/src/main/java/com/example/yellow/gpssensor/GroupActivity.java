@@ -475,7 +475,10 @@ public class GroupActivity extends AppCompatActivity {
             int kp=10;
             getItem(position);
             name.setText(sql.get_user_name(mList.getString(2)));
-            I_icon.setImageURI(Uri.parse(sql.get_user_icon(mList.getString(2))));
+            try
+            {
+                I_icon.setImageURI(Uri.parse(sql.get_user_icon(mList.getString(2))));
+            }catch (Exception e){}
             I_word.setText(mList.getString(3));
             return convertView;
         }

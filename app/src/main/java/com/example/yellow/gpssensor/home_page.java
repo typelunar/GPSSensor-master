@@ -617,6 +617,7 @@ public class home_page extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 final TextView tv=(TextView)view.findViewById(R.id.search_item_id);
+                final TextView tvname=(TextView)view.findViewById(R.id.search_item_name);
                 AlertDialog.Builder ab=new AlertDialog.Builder(home_page.this);
                 ab.setTitle("确定添加为好友？");
                 ab.setNegativeButton("取消",null);
@@ -624,7 +625,7 @@ public class home_page extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         DataShare ds=((DataShare)getApplicationContext());
-                        addFriendToCloud(ds.getUserid(),tv.getText().toString());
+                        addFriendToCloud(ds.getUserid(),tv.getText().toString(),tvname.getText().toString());
                         lv.setVisibility(View.GONE);
                     }
                 });
@@ -669,15 +670,27 @@ public class home_page extends AppCompatActivity {
         adapter.notifyDataSetChanged();
         //Toast.makeText(this,"匹配数："+list.size(),Toast.LENGTH_SHORT).show();
     }
-    public void addFriendToCloud(String userid,String fid){
+    public void addFriendToCloud(String userid,String fid,String fname){
+        final String Uid=userid;
+        final String Fid=fid;
+        final String Fname=fname;
         friends f=new friends();
         f.setId1(userid);
         f.setId2(fid);
         f.save(new SaveListener<String>() {
             @Override
             public void done(String s, BmobException e) {
-                if(e==null) Toast.makeText(home_page.this,"添加成功",Toast.LENGTH_SHORT).show();
+                if(e==null)
+                {
+                    Toast.makeText(home_page.this,"添加成功",Toast.LENGTH_SHORT).show();
+                    sql.new_user(Fname,"s5f5f1t8d4",null);
+                    Cursor c =sql.select_user_by_name(Fname);
+                    c.moveToFirst();
+                    sql.set_netid(c.getString(0),Fid);
+                    sql.new_chat(Uid,Fid,"你好！");
+                }
                 else Toast.makeText(home_page.this,"添加失败",Toast.LENGTH_SHORT).show();
+
             }
         });
     }
