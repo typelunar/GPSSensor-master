@@ -6,11 +6,18 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.net.Uri;
 import android.widget.SimpleCursorAdapter;
-
+import android.widget.Toast;
 import com.baidu.mapapi.model.LatLng;
 
 import java.sql.SQLDataException;
 import java.util.ArrayList;
+import java.util.List;
+
+import cn.bmob.v3.BmobObject;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.listener.SaveListener;
 
 /**
  * Created by asus2 on 2018/1/2.
@@ -59,7 +66,7 @@ public class MYSQL{
                     + context.getResources().getResourceTypeName(R.drawable.jiqu) + "/"
                     + context.getResources().getResourceEntryName(R.drawable.jiqu));
             db.execSQL("insert into users values(?,?,?,?,?,?)",
-                    new String[]{"9999999999","迹趣官方","jiquguangfang",uri.toString(),"迹趣官方","9999999999"});
+                    new String[]{"9999999999","迹趣官方","jiquguangfang",uri.toString(),"迹趣官方","911acce4ec"});
         }catch (SQLiteException e) {}
     }
     //   guanzhu
@@ -126,7 +133,8 @@ public class MYSQL{
     {
         try {
             db.execSQL("update users set net_id = ? where _id = ?",new String[]{net_id,id});
-            new_chat("9999999999",net_id,"欢迎使用迹趣，感谢您的支持。");
+            new_chat("911acce4ec",net_id,"欢迎使用迹趣，感谢您的支持。");
+            addChatMsgToCloud("911acce4ec",net_id,"欢迎使用迹趣，感谢您的支持。");
         }
         catch (SQLiteException e) {}
     }
@@ -165,7 +173,7 @@ public class MYSQL{
     }
     public String get_user_icon(String user_id)
     {
-        Cursor c=select_user(user_id);
+        Cursor c=select_user_by_net_id(user_id);
         c.moveToFirst();
         return c.getString(3);
     }
@@ -232,6 +240,47 @@ public class MYSQL{
     public Cursor select_drawLatLngs_list(String users_id)
     {
         return db.rawQuery("select * from drawLatLngs where users_id = ?",new String[]{users_id});
+    }
+    private class Chat extends BmobObject {
+        private String s_id;//id
+        private String r_id;//id
+        private String msg;
+
+        public String getMsg() {
+            return msg;
+        }
+
+        public String getR_id() {
+            return r_id;
+        }
+
+        public String getS_id() {
+            return s_id;
+        }
+
+        public void setMsg(String msg) {
+            this.msg = msg;
+        }
+
+        public void setR_id(String receive) {
+            this.r_id = receive;
+        }
+        public void setS_id(String send) {
+            this.s_id=send;
+        }
+    }
+    private void addChatMsgToCloud(String sendId,String receiveId,String msg){
+        Chat chatMsg= new Chat();
+        chatMsg.setMsg(msg);
+        chatMsg.setR_id(receiveId);
+        chatMsg.setS_id(sendId);
+        chatMsg.save(new SaveListener<String>() {
+            @Override
+            public void done(String s, BmobException e) {
+                if(e==null) {}
+                else Toast.makeText(context,"同步到云端失败",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }

@@ -47,6 +47,7 @@ public class login extends AppCompatActivity {
     private MYSQL sql;
     private int SignMode=1;//默认1-登录模式，2-注册模式
     private  String psdFromCloud;
+    private String idFromCloud;
     private Uri uri;
     //登录微信的应用ID
     private static final String APP_ID="wxd8e1494ccbebbd1f";
@@ -181,7 +182,14 @@ public class login extends AppCompatActivity {
                                 editor.putBoolean("isFirstLaunch",false);
                                 editor.putString("Password",psdFromCloud);//et_new.getText().toString()
                                 editor.putString("Username",na);
+                                editor.putString("Usersid",idFromCloud);
                                 editor.apply();
+                                DataShare ds=((DataShare)getApplicationContext());
+                                ds.setUserid(idFromCloud);
+                                ds.setUsername(na);
+                                Cursor c=sql.select_user_by_name(ds.getUsername());
+                                c.moveToNext();
+                                sql.set_netid(c.getString(0),idFromCloud);
                                 goToHome();//跳转到主页
                             }
                             else{
@@ -284,6 +292,7 @@ public class login extends AppCompatActivity {
                 if(e==null){;
                     if(list!=null&&list.size()>0){
                         psdFromCloud=list.get(0).getPsd();
+                        idFromCloud=list.get(0).getObjectId();
                         uri = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://"
                                 + getResources().getResourcePackageName(R.drawable.qq_zone) + "/"
                                 + getResources().getResourceTypeName(R.drawable.qq_zone) + "/"

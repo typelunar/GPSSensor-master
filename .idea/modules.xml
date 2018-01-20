@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GPSSensor.iml" filepath="$PROJECT_DIR$/GPSSensor.iml" />
+      <module fileurl="file://E:\aspj\GPSSensor-master\GPSSensor.iml" filepath="E:\aspj\GPSSensor-master\GPSSensor.iml" />
       <module fileurl="file://$PROJECT_DIR$/GPSSensor-master.iml" filepath="$PROJECT_DIR$/GPSSensor-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>

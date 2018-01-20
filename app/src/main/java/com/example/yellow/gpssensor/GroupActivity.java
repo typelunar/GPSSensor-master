@@ -49,7 +49,7 @@ public class GroupActivity extends AppCompatActivity {
         Toast.makeText(this,id,Toast.LENGTH_LONG).show();
         Cursor c = sql.select_user_by_net_id(id);
         c.moveToNext();
-        //icon.setImageURI(Uri.parse(c.getString(3)));
+        icon.setImageURI(Uri.parse(c.getString(3)));
         name.setText(c.getString(1));
         final TextView dongtai_text = (TextView)findViewById(R.id.group_title_dongtai);
         final TextView withme_text = (TextView)findViewById(R.id.group_title_withme);

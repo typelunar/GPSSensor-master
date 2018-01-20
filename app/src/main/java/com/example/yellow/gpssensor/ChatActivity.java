@@ -53,8 +53,8 @@ public class ChatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
         sql=new MYSQL(this);
-        init_chat();
         initCloudChatDB();
+        init_chat();
     }
     class iitem{
         String I_word;
