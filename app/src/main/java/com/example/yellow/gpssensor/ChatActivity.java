@@ -68,9 +68,9 @@ public class ChatActivity extends AppCompatActivity {
 
 
     public void initCloudChatDB(){
-        msgThread=new Thread(new Runnable() {
-            @Override
-            public void run() {
+        //msgThread=new Thread(new Runnable() {
+            //@Override
+           // public void run() {
                 BmobRealTimeData rtd=new BmobRealTimeData();
                 rtd.start(new ValueEventListener() {
                     @Override
@@ -90,11 +90,11 @@ public class ChatActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     }
-                });
+               });
                 if(rtd.isConnected()) rtd.subTableUpdate("ChatMsg");
-            }
-        });
-        msgThread.start();
+            //}
+       // });
+        //msgThread.start();
     }
     public void init_chat()
     {
